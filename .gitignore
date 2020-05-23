@@ -3,3 +3,7 @@ temp/
 */__pycache__/*
 checkpoint/
 .vscode/
+*/__pycache__/*
+*/.ipynb_checkpoints/*
+checkpoint/
+temp
