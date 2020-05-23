@@ -1,10 +1,16 @@
 import streamlit as st
+import os
 import torch
+import urllib.request
 from models.model_builder import ExtSummarizer
 from newspaper import Article
 from ext_sum import summarize
 
 
+@st.cache(suppress_st_warning=True)
+def download_model():
+    url = 'https://www.googleapis.com/drive/v3/files/1tXdugYx8NU73_G4FK7XX08aGip_D1SiJ?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE'
+    urllib.request.urlretrieve(url, 'checkpoint/cnndm_ext.pt')
 
 @st.cache(suppress_st_warning=True)
 def load_model(path):
@@ -20,6 +26,11 @@ def crawl_url(url):
 
 def main():
     st.markdown("<h1 style='text-align: center;'>Extractive Summary✏️</h1>", unsafe_allow_html=True)
+
+    # Download model
+    if not os.path.exists('checkpoint'):
+        os.makedirs('checkpoint', exist_ok=True)
+        download_model()
 
     # Load model
     model = load_model('checkpoint/cnndm_ext.pt')
