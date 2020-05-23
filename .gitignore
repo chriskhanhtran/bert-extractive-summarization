@@ -6,4 +6,4 @@ checkpoint/
 */__pycache__/*
 */.ipynb_checkpoints/*
 checkpoint/
-temp
+temp/
