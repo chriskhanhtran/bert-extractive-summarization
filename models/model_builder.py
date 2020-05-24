@@ -6,13 +6,10 @@ from models.encoder import ExtTransformerEncoder
 
 
 class Bert(nn.Module):
-    def __init__(self, large, temp_dir, finetune=False):
+    def __init__(self, finetune=True):
         super(Bert, self).__init__()
-        if large:
-            self.model = BertModel.from_pretrained("bert-large-uncased", cache_dir=temp_dir)
-        else:
-            self.model = BertModel.from_pretrained("bert-base-uncased", cache_dir=temp_dir)
-
+        configuration = BertConfig()
+        self.model = BertModel(configuration)
         self.finetune = finetune
 
     def forward(self, x, segs, mask):
@@ -29,7 +26,7 @@ class ExtSummarizer(nn.Module):
     def __init__(self, device, checkpoint, max_pos=512):
         super().__init__()
         self.device = device
-        self.bert = Bert(large=False, temp_dir="./temp", finetune=True)
+        self.bert = Bert()
         self.ext_layer = ExtTransformerEncoder(
             self.bert.model.config.hidden_size, d_ff=2048, heads=8, dropout=0.2, num_inter_layers=2
         )
