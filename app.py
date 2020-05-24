@@ -5,10 +5,12 @@ import urllib.request
 from models.model_builder import ExtSummarizer
 from newspaper import Article
 from ext_sum import summarize
+import nltk
 
 
 @st.cache(suppress_st_warning=True)
 def download_model():
+    nltk.download('popular')
     url = 'https://www.googleapis.com/drive/v3/files/1tXdugYx8NU73_G4FK7XX08aGip_D1SiJ?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE'
     urllib.request.urlretrieve(url, 'checkpoint/cnndm_ext.pt')
 
