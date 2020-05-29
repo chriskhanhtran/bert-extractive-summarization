@@ -70,5 +70,5 @@ By declaring bankruptcy, Hertz says it intends to stay in business while restruc
 financially healthier company. The company has been renting cars since 1918, when it set up shop with a dozen
 Ford Model Ts, and has survived the Great Depression, the virtual halt of US auto production during World War II
 and numerous oil price shocks. "The impact of Covid-19 on travel demand was sudden and dramatic, causing an
-abrupt decline in the company\'s revenue and future bookings," said the company's statement.
+abrupt decline in the company's revenue and future bookings," said the company's statement.
 ```
