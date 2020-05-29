@@ -1,42 +1,41 @@
 import torch
 import torch.nn as nn
 from torch.nn.init import xavier_uniform_
-from transformers import BertModel, BertConfig
+from transformers import BertModel, BertConfig, DistilBertConfig, DistilBertModel
+from models.MobileBert.modeling_mobilebert import MobileBertConfig, MobileBertModel
 from models.encoder import ExtTransformerEncoder
 
-
 class Bert(nn.Module):
-    def __init__(self, finetune=True):
+    def __init__(self, bert_type='bertbase'):
         super(Bert, self).__init__()
-        configuration = BertConfig()
-        self.model = BertModel(configuration)
-        self.finetune = finetune
+        self.bert_type = bert_type
+
+        if bert_type == 'bertbase':
+            configuration = BertConfig()
+            self.model = BertModel(configuration)
+        elif bert_type == 'distilbert':
+            configuration = DistilBertConfig()
+            self.model = DistilBertModel(configuration)           
+        elif bert_type == 'mobilebert':
+            configuration = MobileBertConfig.from_pretrained('checkpoints/mobilebert')
+            self.model = MobileBertModel(configuration)  
 
     def forward(self, x, segs, mask):
-        if self.finetune:
-            top_vec, _ = self.model(x, attention_mask=mask, token_type_ids=segs)
+        if self.bert_type == 'distilbert':
+            top_vec = self.model(input_ids=x, attention_mask=mask)[0]
         else:
-            self.eval()
-            with torch.no_grad():
-                top_vec, _ = self.model(x, attention_mask=mask, token_type_ids=segs)
+            top_vec, _ = self.model(x, attention_mask=mask, token_type_ids=segs)
         return top_vec
 
 
 class ExtSummarizer(nn.Module):
-    def __init__(self, device, checkpoint, max_pos=512):
+    def __init__(self, device, checkpoint=None, bert_type='bertbase'):
         super().__init__()
         self.device = device
-        self.bert = Bert()
+        self.bert = Bert(bert_type=bert_type)
         self.ext_layer = ExtTransformerEncoder(
             self.bert.model.config.hidden_size, d_ff=2048, heads=8, dropout=0.2, num_inter_layers=2
         )
-
-        if max_pos > 512:
-            my_pos_embeddings = nn.Embedding(max_pos, self.bert.model.config.hidden_size)
-            my_pos_embeddings.weight.data[:512] = self.bert.model.embeddings.position_embeddings.weight.data
-            my_pos_embeddings.weight.data[512:] = self.bert.model.embeddings.position_embeddings.weight.data[-1][
-                None, :].repeat(max_pos - 512, 1)
-            self.bert.model.embeddings.position_embeddings = my_pos_embeddings
 
         if checkpoint is not None:
             self.load_state_dict(checkpoint, strict=True)

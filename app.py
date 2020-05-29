@@ -12,22 +12,23 @@ def main():
     st.markdown("<h1 style='text-align: center;'>Extractive Summary✏️</h1>", unsafe_allow_html=True)
 
     # Download model
-    if not os.path.exists('checkpoint'):
-        os.makedirs('checkpoint', exist_ok=True)
+    if not os.path.exists('checkpoints/mobilebert_ext.pt'):
         download_model()
 
     # Load model
-    model = load_model('checkpoint/cnndm_ext.pt')
+    model = load_model('mobilebert')
 
     # Input
     input_type = st.radio("Input Type: ", ["URL", "Raw Text"])
     st.markdown("<h3 style='text-align: center;'>Input</h3>", unsafe_allow_html=True)
+
     if input_type == "Raw Text":
-        with open("raw_data/cnn.txt") as f:
+        with open("raw_data/input.txt") as f:
             sample_text = f.read()
         text = st.text_area("", sample_text, 200)
     else:
-        url = st.text_input("", "https://www.cnn.com/2020/05/23/us/cicadas-emerge-17-years-underground-scn-trnd/index.html")
+        url = st.text_input("", "https://www.cnn.com/2020/05/29/tech/facebook-violence-trump/index.html")
+        st.markdown(f"[*Read Original News*]({url})")
         text = crawl_url(url)
 
     input_fp = "raw_data/input.txt"
@@ -36,7 +37,7 @@ def main():
 
     # Summarize
     sum_level = st.radio("Output Length: ", ["Short", "Medium"])
-    max_length = 3 if sum_level == "Short" else 6
+    max_length = 3 if sum_level == "Short" else 5
     result_fp = 'results/summary.txt'
     summary = summarize(input_fp, result_fp, model, max_length=max_length)
     st.markdown("<h3 style='text-align: center;'>Summary</h3>", unsafe_allow_html=True)
@@ -45,14 +46,14 @@ def main():
 
 def download_model():
     nltk.download('popular')
-    url = 'https://www.googleapis.com/drive/v3/files/1tXdugYx8NU73_G4FK7XX08aGip_D1SiJ?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE'
+    url = 'https://www.googleapis.com/drive/v3/files/1umMOXoueo38zID_AKFSIOGxG9XjS5hDC?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE'
 
     # These are handles to two visual elements to animate.
     weights_warning, progress_bar = None, None
     try:
         weights_warning = st.warning("Downloading checkpoint...")
         progress_bar = st.progress(0)
-        with open('checkpoint/cnndm_ext.pt', 'wb') as output_file:
+        with open('checkpoints/mobilebert_ext.pt', 'wb') as output_file:
             with urllib.request.urlopen(url) as response:
                 length = int(response.info()["Content-Length"])
                 counter = 0.0
@@ -78,9 +79,9 @@ def download_model():
 
 
 @st.cache(suppress_st_warning=True)
-def load_model(path):
-    checkpoint = torch.load(path)
-    model = ExtSummarizer(device="cpu", checkpoint=checkpoint, max_pos=512)
+def load_model(model_type):
+    checkpoint = torch.load(f'checkpoints/{model_type}_ext.pt')
+    model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model_type)
     return model
 
 
@@ -93,10 +94,3 @@ def crawl_url(url):
 
 if __name__ == "__main__":
     main()
-
-    
-
-
-
-
-
