@@ -10,8 +10,7 @@
 
 [**Tensorboard**](https://tensorboard.dev/experiment/wX89oBpMRyatmPwD0RQDOw/#scalars&_smoothingWeight=0.306)
 
-## Usage
-**Setup**
+## Setup
 ```sh
 git clone https://github.com/chriskhanhtran/bert-summarization.git
 cd bert-summarization
@@ -24,7 +23,7 @@ cd ..
 git clone https://github.com/lonePatient/MobileBert_PyTorch.git
 ```
 
-**Summaziation**
+## Usage
 ```python
 import torch
 from models.model_builder import ExtSummarizer
