@@ -35,7 +35,7 @@ from models.model_builder import ExtSummarizer
 from ext_sum import summarize
 
 # Load model
-model_type = 'bertbase' #@param ['bertbase', 'distilbert', 'mobilebert']
+model_type = 'mobilebert' #@param ['bertbase', 'distilbert', 'mobilebert']
 checkpoint = torch.load(f'checkpoints/{model_type}_ext.pt')
 model = ExtSummarizer(checkpoint=checkpoint, bert_type=model_type, device="cpu")
 
