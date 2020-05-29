@@ -18,7 +18,7 @@ cd bert-summarization
 pip install -r requirements.txt
 ```
 
-To use MobileBert
+If you want to use MobileBert, do following:
 ```sh
 cd ..
 git glone https://github.com/lonePatient/MobileBert_PyTorch.git
