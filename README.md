@@ -17,12 +17,6 @@ cd bert-summarization
 pip install -r requirements.txt
 ```
 
-If you want to use MobileBert, run the following:
-```sh
-cd ..
-git clone https://github.com/lonePatient/MobileBert_PyTorch.git
-```
-
 ## Usage
 ```python
 import torch
@@ -32,7 +26,7 @@ from ext_sum import summarize
 # Load model
 model_type = 'bertbase' #@param ['bertbase', 'distilbert', 'mobilebert']
 checkpoint = torch.load(f'checkpoint/{model_type}_ext.pt')
-model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model_type, max_pos=512)
+model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model_type)
 
 # Run summarization
 input_fp = 'raw_data/input.txt'
