@@ -9,6 +9,7 @@
 | mobilebert | 40.59   | 17.98    | 36.99   | 424 ms         | 128 MB | 30.8 M   | [link](https://www.googleapis.com/drive/v3/files/1umMOXoueo38zID_AKFSIOGxG9XjS5hDC?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
 
 [**Tensorboard**](https://tensorboard.dev/experiment/Ly7CRURRSOuPBlZADaqBlQ/#scalars)
+![](tensorboard.jpg)
 
 ## Setup
 ```sh
