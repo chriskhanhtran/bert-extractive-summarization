@@ -18,10 +18,10 @@ cd bert-summarization
 pip install -r requirements.txt
 ```
 
-If you want to use MobileBert, do following:
+If you want to use MobileBert, run the following:
 ```sh
 cd ..
-git glone https://github.com/lonePatient/MobileBert_PyTorch.git
+git clone https://github.com/lonePatient/MobileBert_PyTorch.git
 ```
 
 **Summaziation**
