@@ -14,16 +14,26 @@
 **Original:** https://www.cnn.com/2020/05/22/business/hertz-bankruptcy/index.html
 
 **bert-base**
-```python
-The company has been renting cars since 1918, when it set up shop with a dozen Ford Model Ts, and has survived the Great Depression, the virtual halt of US auto production during World War II and numerous oil price shocks. By declaring bankruptcy, Hertz says it intends to stay in business while restructuring its debts and emerging a financially healthier company. The filing is arguably the highest-profile bankruptcy of the Covid-19 crisis, which has prompted bankruptcies by national retailers like JCPenney Neiman Marcus and J.Crew , along with some energy companies such as Whiting Petroleum and Diamond Offshore Drilling .
+```
+The company has been renting cars since 1918, when it set up shop with a dozen Ford Model Ts, and has survived the Great Depression, the
+virtual halt of US auto production during World War II and numerous oil price shocks. By declaring bankruptcy, Hertz says it intends to
+stay in business while restructuring its debts and emerging a financially healthier company. The filing is arguably the highest-profile
+bankruptcy of the Covid-19 crisis, which has prompted bankruptcies by national retailers like JCPenney Neiman Marcus and J.Crew , along
+with some energy companies such as Whiting Petroleum and Diamond Offshore Drilling .
 ```
 
 **distilbert**
-```python
-By declaring bankruptcy, Hertz says it intends to stay in business while restructuring its debts and emerging a financially healthier company. But many companies that have filed for bankruptcy with the intention of staying in business have not survived the process. The company has been renting cars since 1918, when it set up shop with a dozen Ford Model Ts, and has survived the Great Depression, the virtual halt of US auto production during World War II and numerous oil price shocks.
+```
+By declaring bankruptcy, Hertz says it intends to stay in business while restructuring its debts and emerging a financially healthier
+company. But many companies that have filed for bankruptcy with the intention of staying in business have not survived the process. The
+company has been renting cars since 1918, when it set up shop with a dozen Ford Model Ts, and has survived the Great Depression, the
+virtual halt of US auto production during World War II and numerous oil price shocks.
 ```
 
 **mobilebert**
-```python
-By declaring bankruptcy, Hertz says it intends to stay in business while restructuring its debts and emerging a financially healthier company. The company has been renting cars since 1918, when it set up shop with a dozen Ford Model Ts, and has survived the Great Depression, the virtual halt of US auto production during World War II and numerous oil price shocks. "The impact of Covid-19 on travel demand was sudden and dramatic, causing an abrupt decline in the company\'s revenue and future bookings," said the company\'s statement.
+```
+By declaring bankruptcy, Hertz says it intends to stay in business while restructuring its debts and emerging a financially healthier
+company. The company has been renting cars since 1918, when it set up shop with a dozen Ford Model Ts, and has survived the Great 
+Depression, the virtual halt of US auto production during World War II and numerous oil price shocks. "The impact of Covid-19 on travel
+demand was sudden and dramatic, causing an abrupt decline in the company\'s revenue and future bookings," said the company\'s statement.
 ```
