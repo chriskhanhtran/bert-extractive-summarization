@@ -36,7 +36,7 @@ checkpoint = torch.load(f'checkpoint/{model_type}_ext.pt')
 model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model_type, max_pos=512)
 
 # Run summarization
-input_fp = 'raw_data/news_from_url.txt'
+input_fp = 'raw_data/input.txt'
 result_fp = 'results/summary.txt'
 summary = summarize(input_fp, result_fp, model, max_length=3)
 print(summary)
