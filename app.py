@@ -80,7 +80,7 @@ def download_model():
 
 @st.cache(suppress_st_warning=True)
 def load_model(model_type):
-    checkpoint = torch.load(f'checkpoints/{model_type}_ext.pt')
+    checkpoint = torch.load(f'checkpoints/{model_type}_ext.pt', map_location='cpu')
     model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model_type)
     return model
 

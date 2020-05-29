@@ -12,13 +12,10 @@ def preprocess(source_fp):
     - Sentence Tokenize
     - Add [SEP] [CLS] as sentence boundary
     """
-
     with open(source_fp) as source:
         raw_text = source.read().replace("\n", " ").replace("[CLS] [SEP]", " ")
-
     sents = sent_tokenize(raw_text)
     processed_text = "[CLS] [SEP]".join(sents)
-
     return processed_text, len(sents)
 
 
@@ -52,7 +49,6 @@ def load_text(processed_text, max_pos, device):
         clss = torch.tensor(cls_ids).to(device)
         mask_cls = 1 - (clss == -1).float()
         clss[clss == -1] = 0
-
         return src, mask_src, segments_ids, clss, mask_cls
 
     src, mask_src, segments_ids, clss, mask_cls = _process_src(processed_text)
@@ -118,3 +114,4 @@ def summarize(raw_txt_fp, result_fp, model, max_length=3, max_pos=512, return_su
     test(model, input_data, result_fp, max_length, block_trigram=True)
     if return_summary:
         return open(result_fp).read().strip()
+        
