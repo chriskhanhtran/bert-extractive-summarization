@@ -1,4 +1,6 @@
-**Demo:** https://bert-summarization.herokuapp.com/
+# Extractive Summarization with BERT
+
+**Demo with MobileBert:** https://bert-summarization.herokuapp.com/
 
 ## Results on CNN/DailyMail
 
