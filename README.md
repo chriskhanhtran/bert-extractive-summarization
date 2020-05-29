@@ -13,8 +13,8 @@
 
 ## Setup
 ```sh
-git clone https://github.com/chriskhanhtran/bert-summarization.git
-cd bert-summarization
+git clone https://github.com/chriskhanhtran/bert-extractive-summarization.git
+cd bert-extractive-summarization
 pip install -r requirements.txt
 ```
 
