@@ -10,6 +10,38 @@
 
 [**Tensorboard**](https://tensorboard.dev/experiment/wX89oBpMRyatmPwD0RQDOw/#scalars&_smoothingWeight=0.306)
 
+## Usage
+**Setup**
+```sh
+git clone https://github.com/chriskhanhtran/bert-summarization.git
+cd bert-summarization
+pip install -r requirements.txt
+```
+
+To use MobileBert
+```sh
+cd ..
+git glone https://github.com/lonePatient/MobileBert_PyTorch.git
+```
+
+**Summaziation**
+```python
+import torch
+from models.model_builder import ExtSummarizer
+from ext_sum import summarize
+
+# Load model
+model = 'bertbase' #@param ['bertbase', 'distilbert', 'mobilebert']
+checkpoint = torch.load(f'checkpoint/{model}_ext.pt')
+model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model, max_pos=512)
+
+# Run summarization
+input_fp = 'raw_data/news_from_url.txt'
+result_fp = 'results/summary.txt'
+summary = summarize(input_fp, result_fp, model, max_length=3)
+print(summary)
+```
+
 ## Samples
 **Original:** https://www.cnn.com/2020/05/22/business/hertz-bankruptcy/index.html
 
