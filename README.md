@@ -8,7 +8,7 @@
 | distilbert | 42.84   | 20.04    | 39.31   | 641 ms         | 310 MB | 77.4 M   |-|
 | mobilebert | 40.59   | 17.98    | 36.99   | 424 ms         | 128 MB | 30.8 M   |-|
 
-[**Tensorboard**](https://tensorboard.dev/experiment/wX89oBpMRyatmPwD0RQDOw/#scalars&_smoothingWeight=0.306)
+[**Tensorboard**](https://tensorboard.dev/experiment/Ly7CRURRSOuPBlZADaqBlQ/#scalars)
 
 ## Setup
 ```sh
