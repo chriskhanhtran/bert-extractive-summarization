@@ -31,9 +31,9 @@ from models.model_builder import ExtSummarizer
 from ext_sum import summarize
 
 # Load model
-model = 'bertbase' #@param ['bertbase', 'distilbert', 'mobilebert']
-checkpoint = torch.load(f'checkpoint/{model}_ext.pt')
-model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model, max_pos=512)
+model_type = 'bertbase' #@param ['bertbase', 'distilbert', 'mobilebert']
+checkpoint = torch.load(f'checkpoint/{model_type}_ext.pt')
+model = ExtSummarizer(device="cpu", checkpoint=checkpoint, bert_type=model_type, max_pos=512)
 
 # Run summarization
 input_fp = 'raw_data/news_from_url.txt'
