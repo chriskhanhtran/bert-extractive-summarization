@@ -79,3 +79,9 @@ Ford Model Ts, and has survived the Great Depression, the virtual halt of US aut
 and numerous oil price shocks. "The impact of Covid-19 on travel demand was sudden and dramatic, causing an
 abrupt decline in the company's revenue and future bookings," said the company's statement.
 ```
+
+## References
+- [1] [PreSumm:  Text Summarization with Pretrained Encoders](https://github.com/nlpyang/PreSumm)
+- [2] [DistilBERT: Smaller, faster, cheaper, lighter version of BERT](https://huggingface.co/transformers/model_doc/distilbert.html)
+- [3] [MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices](https://github.com/google-research/google-research/tree/master/mobilebert)
+- [4] [MobileBert_PyTorch](https://github.com/lonePatient/MobileBert_PyTorch)
