@@ -4,11 +4,13 @@
 
 ## Results on CNN/DailyMail
 
-| Models     | ROUGE-1 |	ROUGE-2 | ROUGE-L | Avg. Inf. Time | Size   | Params   | Download |
-|:-----------|:-------:|:--------:|:-------:|:--------------:|:------:|:--------:|:--------:|
-| bert-base  | 43.23   | 20.24    | 39.63   | 463 ms         | 475 MB | 120.5 M  | [link](https://www.googleapis.com/drive/v3/files/1t27zkFMUnuqRcsqf2fh8F1RwaqFoMw5e?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
-| distilbert | 42.84   | 20.04    | 39.31   | 308 ms         | 310 MB | 77.4 M   | [link](https://www.googleapis.com/drive/v3/files/1WxU7cHECfYaU32oTM0JByTRGS5f6SYEF?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
-| mobilebert | 40.59   | 17.98    | 36.99   | 271 ms         | 128 MB | 30.8 M   | [link](https://www.googleapis.com/drive/v3/files/1umMOXoueo38zID_AKFSIOGxG9XjS5hDC?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
+| Models     | ROUGE-1 |	ROUGE-2 | ROUGE-L | Avg. Inf. Time* | Size   | Params   | Download |
+|:-----------|:-------:|:--------:|:-------:|:---------------:|:------:|:--------:|:--------:|
+| bert-base  | 43.23   | 20.24    | 39.63   | 1.65 s          | 475 MB | 120.5 M  | [link](https://www.googleapis.com/drive/v3/files/1t27zkFMUnuqRcsqf2fh8F1RwaqFoMw5e?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
+| distilbert | 42.84   | 20.04    | 39.31   | 925 ms          | 310 MB | 77.4 M   | [link](https://www.googleapis.com/drive/v3/files/1WxU7cHECfYaU32oTM0JByTRGS5f6SYEF?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
+| mobilebert | 40.59   | 17.98    | 36.99   | 609 ms          | 128 MB | 30.8 M   | [link](https://www.googleapis.com/drive/v3/files/1umMOXoueo38zID_AKFSIOGxG9XjS5hDC?alt=media&key=AIzaSyCmo6sAQ37OK8DK4wnT94PoLx5lx-7VTDE) |
+
+\**Time running on a standard Google Colab notebook*
 
 [**Tensorboard**](https://tensorboard.dev/experiment/Ly7CRURRSOuPBlZADaqBlQ/#scalars)
 ![](tensorboard.JPG)
@@ -29,6 +31,7 @@ wget -O "checkpoints/mobilebert_ext.pt" "https://www.googleapis.com/drive/v3/fil
 ```
 
 ## Usage
+[![](https://img.shields.io/badge/Colab-Run_in_Google_Colab-blue?logo=Google&logoColor=FDBA18)](https://colab.research.google.com/drive/1hwpYC-AU6C_nwuM_N5ynOShXIRGv-U51#scrollTo=KizhzOxVOjaN)
 ```python
 import torch
 from models.model_builder import ExtSummarizer
@@ -36,7 +39,7 @@ from ext_sum import summarize
 
 # Load model
 model_type = 'mobilebert' #@param ['bertbase', 'distilbert', 'mobilebert']
-checkpoint = torch.load(f'checkpoints/{model_type}_ext.pt')
+checkpoint = torch.load(f'checkpoints/{model_type}_ext.pt', map_location='cpu')
 model = ExtSummarizer(checkpoint=checkpoint, bert_type=model_type, device="cpu")
 
 # Run summarization
