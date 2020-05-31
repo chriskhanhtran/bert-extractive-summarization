@@ -57,6 +57,9 @@ print(summary)
 ```
 
 ## Samples
+
+![](https://github.com/chriskhanhtran/minimal-portfolio/blob/master/images/bertsum.gif?raw=true)
+
 **Original:** https://www.cnn.com/2020/05/22/business/hertz-bankruptcy/index.html
 
 **bert-base**
