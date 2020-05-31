@@ -5,7 +5,7 @@ In an effort to make BERTSUM ([Liu et al., 2019](https://github.com/nlpyang/PreS
 - **Demo with MobileBert:** https://extractive-summarization.herokuapp.com/
 - **Blog post:** 
 
-I modified the source codes provided by ([Liu et al., 2019](https://github.com/nlpyang/PreSumm)) to use the HuggingFace's `transformers` library and their pretrained DistilBERT model. At the moment (05/31/2020), MobileBERT is not yet available in `transformers`. Fortunately, I found this [PyTorch implementation of MobileBERT](https://github.com/lonePatient/MobileBert_PyTorch) by @lonePatient.
+I modified the source codes in [PreSumm](https://github.com/nlpyang/PreSumm) to use the HuggingFace's `transformers` library and their pretrained DistilBERT model. At the moment (05/31/2020), MobileBERT is not yet available in `transformers`. Fortunately, I found this [PyTorch implementation of MobileBERT](https://github.com/lonePatient/MobileBert_PyTorch) by @lonePatient.
 
 Please visit [PreSumm](https://github.com/nlpyang/PreSumm) for instructions for training on CNN/DailyMail and this [modified repo]() forked from PreSumm for fine-tuning DistilBERT and MobileBERT.
 
