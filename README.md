@@ -19,7 +19,7 @@ Please visit [PreSumm](https://github.com/nlpyang/PreSumm) for instructions for 
 
 \**Average running time on a single CPU on a standard Google Colab notebook*
 
-[**Tensorboard**](https://tensorboard.dev/experiment/Ly7CRURRSOuPBlZADaqBlQ/#scalars)
+[**TensorBoard**](https://tensorboard.dev/experiment/Ly7CRURRSOuPBlZADaqBlQ/#scalars)
 ![](tensorboard.JPG)
 
 ## Setup
