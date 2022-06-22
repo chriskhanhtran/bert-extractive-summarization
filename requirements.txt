@@ -1,5 +1,5 @@
 streamlit==0.60.0
-numpy==1.17.2
+numpy==1.22.0
 transformers==2.10.0
 newspaper3k==0.2.8
 https://download.pytorch.org/whl/cpu/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
